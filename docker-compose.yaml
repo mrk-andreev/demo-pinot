@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  presto:
+    image: apachepinot/pinot
+    restart: always
+    command:
+      - "QuickStart"
+      - "-type"
+      - "hybrid"
+    networks:
+      - pinot_net
+    ports:
+      - "9000:9000"
+
+networks:
+  pinot_net:
+    driver: bridge
